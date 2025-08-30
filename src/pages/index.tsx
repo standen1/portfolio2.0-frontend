@@ -1,7 +1,6 @@
 import Head from "next/head";
-import ContentContainer from "@/components/ContentContainer/ContentContainer";
 import Hero from "@/components/Hero/Hero";
-import Button from "@/components/Button/Button";
+import Card from "@/components/Card/Card";
 
 export default function Home() {
   return (
@@ -24,16 +23,13 @@ export default function Home() {
               height: 600
             }
           }} />
-          <section style={{ paddingTop: "16px" }}>
-            
-            <ContentContainer>
-
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px", justifyContent: "center", alignItems: "flex-start", width: "100%", height: "500px", padding: "25px"}}>
-                <Button>Portfolio</Button>
-                <h2>About Me</h2>
-                <p>This is a brief description about me.</p>
+          <section style={{ paddingTop: "16px", maxWidth: "1200px", margin: "0 auto" }}>
+            <Card>
+              <div style={{ padding: "16px" }}>
+                <h2>Project Title</h2>
+                <p>Project description goes here.</p>
               </div>
-            </ContentContainer>
+            </Card>
           </section>
         </main>
       </div>
