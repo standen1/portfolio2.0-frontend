@@ -21,7 +21,6 @@ export type FreelanceLink = {
     linkURL: string;
 }
 
-
 export type SkillsTechnologies = {
     title: string;
     content: any;
