@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
+import ContentContainer from "@/components/ContentContainer/ContentContainer";
 import Hero from "@/components/Hero/Hero";
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/g" />
       </Head>
       <div>
-        <main>
+        <main style={{ backgroundColor: "#F8F8F8" }}>
           <Hero pageInfo={{
             title: "Welcome to My Portfolio",
             description: "This is a showcase of my work.",
@@ -23,6 +23,14 @@ export default function Home() {
               height: 600
             }
           }} />
+          <section style={{ paddingTop: "16px" }}>
+            <ContentContainer>
+              <div style={{ display: "flex", flexDirection: "column", gap: "16px", justifyContent: "center", width: "100%", height: "500px", padding: "25"}}>
+                <h2>About Me</h2>
+                <p>This is a brief description about me.</p>
+              </div>
+            </ContentContainer>
+          </section>
         </main>
       </div>
     </>
