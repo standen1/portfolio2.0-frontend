@@ -12,5 +12,5 @@
 }
 
 .Button:hover, .Button:focus {
-    background-color: #EDD8B9;
+    background-color: var(--gold);
 }
