@@ -1,8 +1,24 @@
 import Head from "next/head";
 import Hero from "@/components/Hero/Hero";
 import Card from "@/components/Card/Card";
+import PorfolioCard from "@/components/pages/home/portfolio/PortfolioCard/PorfolioCard";
 
 export default function Home() {
+  const projectDummyData = {
+    name: "Project Dummy Data",
+    websiteURL: "https://www.protrending.com/",
+    technologies: [
+      "WebFlow", "Next.JS"
+    ],
+    description: "This is a test of the project",
+    featuredImage: {
+      src: "https://cdn.prod.website-files.com/62ecf6509147fe25583ba07a/688bec760ef8c221a30e34f8_1.jpg",
+      alt: "Protrending Website",
+      width: "500px",
+      height: "auto"
+    },
+  }
+
   return (
     <>
       <Head>
@@ -19,16 +35,13 @@ export default function Home() {
             featuredImage: {
               src: "/jsabet1.jpg",
               alt: "A description of the image",
-              width: 800,
-              height: 600
+              width: "800px",
+              height: "600px"
             }
           }} />
           <section style={{ paddingTop: "16px", maxWidth: "1200px", margin: "0 auto" }}>
             <Card>
-              <div style={{ padding: "16px" }}>
-                <h2>Project Title</h2>
-                <p>Project description goes here.</p>
-              </div>
+              <PorfolioCard project={projectDummyData} />
             </Card>
           </section>
         </main>
