@@ -1,8 +1,8 @@
 export type ImageProps = {
     src: string;
     alt: string;
-    width: number;
-    height: number;
+    width: string;
+    height: string;
 };
 
 export type PageInfo = {
@@ -29,7 +29,7 @@ export type SkillsTechnologies = {
 export type Project = {
     name: string;
     websiteURL: string;
-    technologies: SkillsTechnologies[];
+    technologies: string[];
     description: any;
     featuredImage: ImageProps;
 }
