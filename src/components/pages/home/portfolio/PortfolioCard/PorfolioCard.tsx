@@ -9,8 +9,10 @@ const PorfolioCard: React.FC<PorfolioCardProps> = ({ project }) => {
     const [hover, setHover] = useState(false);
 
     const hoverComponent = (
-        <div className={styles.PortolioCardHover}>
-            <a href={project.websiteURL} target="blank">Visit Website</a>
+        <div className={styles.PortfolioCardHover}>
+            <h4>{project.name}</h4>
+            <p>{project.description}</p>
+            <a href={project.websiteURL} target="blank">Visit Website <i className="arrow right"></i></a>
         </div>
     );
 
@@ -18,12 +20,12 @@ const PorfolioCard: React.FC<PorfolioCardProps> = ({ project }) => {
 
     return (
         <div 
-            className={styles.PorfolioCard}
+            className={styles.PortfolioCard}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
             <CardFeaturedImage image={project.featuredImage} />
-            <div className={styles.PorfolioCardText}>
+            <div className={styles.PortfolioCardText}>
                 <h3>
                     {project.name}
                 </h3>

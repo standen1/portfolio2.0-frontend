@@ -1,27 +1,40 @@
-.PorfolioCard {
+.PortfolioCard {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.PorfolioCardText {
+.PortfolioCardText {
     padding: 20px 10px;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.PortolioCardHover {
+.PortfolioCardHover {
     display: flex;
+    flex-direction: column;
+    padding: 10px;
     width: 100%;
     height: 100%;
     background: var(--gold);
     justify-content: center;
-    align-items: center;
+    gap: 15px;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     font-size: 1.2rem;
+}
+
+.PortfolioCardHover h4 {
     font-weight: 600;
+}
+
+.PortfolioCardHover a {
+    color: var(--foreground);
+}
+
+.PortfolioCardHover a:hover {
+    opacity: 0.6;
 }
