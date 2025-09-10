@@ -1,0 +1,1 @@
+export const ABOUT_ENDPOINT: String = "/about-page?populate=*"

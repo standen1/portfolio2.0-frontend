@@ -6,8 +6,8 @@ export type ImageProps = {
 };
 
 export type PageInfo = {
-    title: string;
-    description: string;
+    Title: string;
+    Description: string;
     featuredImage: ImageProps;
 }
 
@@ -22,8 +22,8 @@ export type FreelanceLink = {
 }
 
 export type SkillsTechnologies = {
-    title: string;
-    content: any;
+    Title: string;
+    Content: any;
 }
 
 export type Project = {
@@ -45,3 +45,5 @@ export type Job = {
     projects: Project[];
     featuredImage: ImageProps;
 }
+
+export type Endpoint = String;
