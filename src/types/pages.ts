@@ -5,3 +5,7 @@ export type AboutPage = {
     PageInfo: types.PageInfo;
     PageData: types.SkillsTechnologies;
 }
+
+export type SkillsPage = {
+    Category: any;
+}

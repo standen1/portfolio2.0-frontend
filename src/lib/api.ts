@@ -1,7 +1,7 @@
 import { Endpoint } from "@/types/types";
-import { AboutPage } from "@/types/pages";
+import { AboutPage, SkillsPage } from "@/types/pages";
 
-import { ABOUT_ENDPOINT } from '@/lib/endpoints';
+import { ABOUT_ENDPOINT, SKILLS_ENDPOINT } from '@/lib/endpoints';
 
 
 //Main API Call to Strapi App Backend
@@ -28,7 +28,9 @@ export async function get(endpoint: Endpoint) {
     }
 }
 
-//Call to Strapi App for About Page using the get function above.  Returns AboutPage data type
+
+//About Page API Call
+//Returns data: AboutPage
 export async function getAboutPage(): Promise<any> {
     try {
         const response = await get(ABOUT_ENDPOINT);
@@ -47,6 +49,26 @@ export async function getAboutPage(): Promise<any> {
         }
         
         return pageData;
+    } catch (error) {
+        return "Something Went Wrong";
+    }
+} 
+
+//About Page API Call
+//Returns data: AboutPage
+export async function getSkillsPage(): Promise<any> {
+    try {
+        const response = await get(SKILLS_ENDPOINT);
+        const data = JSON.parse(response).data;
+        //console.log(data)
+
+        const pageData: SkillsPage = {
+            Category: data.Category
+        }
+
+        // console.log(pageData.Category)
+        
+        return pageData.Category;
     } catch (error) {
         return "Something Went Wrong";
     }

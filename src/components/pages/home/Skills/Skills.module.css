@@ -1,0 +1,13 @@
+.Skills {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 30px;
+    gap: 30px;
+    justify-content: center;
+}
+
+.Skill {
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+}
