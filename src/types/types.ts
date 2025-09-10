@@ -31,14 +31,14 @@ export type Project = {
     websiteURL: string;
     technologies: string[];
     description: any;
-    featuredImage: ImageProps;
+    featuredImage?: ImageProps;
 }
 
 export type Job = {
     companyName: string;
     jobTitle: string;
-    startDate: Date | string;
-    endDate: string;
+    startDate: string;
+    endDate: string | null;
     description: any;
     websiteURL: string;
     responsibilities: any;

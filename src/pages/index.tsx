@@ -1,16 +1,24 @@
 import Head from "next/head";
 import Hero from "@/components/Hero/Hero";
 import Card from "@/components/Card/Card";
-import PorfolioCard from "@/components/pages/home/portfolio/PortfolioCard/PorfolioCard";
+import PorfolioCard from "@/components/pages/portfolio/PortfolioCard/PorfolioCard";
+import ResumeCard from "@/components/pages/resume/ResumeCard/ResumeCard";
 
 export default function Home() {
-  const projectDummyData = {
-    name: "Project Dummy Data",
-    websiteURL: "https://www.protrending.com/",
-    technologies: [
-      "WebFlow", "Next.JS"
-    ],
-    description: "This is a test of the project",
+  const jobDummyData = {
+    companyName: "Testing Co.",
+    jobTitle: "Web Developer in Test",
+    startDate:  'Jan 1, 2020',
+    endDate: null,
+    description: "Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should. Yes, Yes, without the oops!",
+    websiteURL: "https://henryscheinortho.com",
+    responsibilities: "Checkmate... Life finds a way. This thing comes fully loaded. AM/FM radio, reclining bucket seats, and... power windows. Just my luck, no ice. Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should.",
+    projects: [{
+      name: "WebPunk",
+      websiteURL: "https://webpunk.tech",
+      technologies: ["Next.js", "React", "Framer Motion", "Strapi CMS"],
+      description: "Checkmate... Life finds a way. This thing comes fully loaded. AM/FM radio, reclining bucket seats, and... power windows. Just my luck, no ice. Yeah, but your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should."
+    }],
     featuredImage: {
       src: "https://cdn.prod.website-files.com/62ecf6509147fe25583ba07a/688bec760ef8c221a30e34f8_1.jpg",
       alt: "Protrending Website",
@@ -41,7 +49,7 @@ export default function Home() {
           }} />
           <section style={{ paddingTop: "16px", maxWidth: "1200px", margin: "0 auto" }}>
             <Card>
-              <PorfolioCard project={projectDummyData} />
+              <ResumeCard job={jobDummyData} />
             </Card>
           </section>
         </main>
