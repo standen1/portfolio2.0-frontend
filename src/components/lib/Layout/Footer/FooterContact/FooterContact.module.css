@@ -1,0 +1,15 @@
+.FooterContact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.FooterContact h3 {
+    font-size: 35px;
+}
+
+.FooterContact p {
+    font-size: 16px;
+}

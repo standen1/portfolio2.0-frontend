@@ -8,13 +8,16 @@ import Link from "next/link";
 //import MobileNav from "../MobileNav/MobileNav";
 
 const Navigation = () => {
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [screenWidth, setScreenWidth] = useState(0);
 
     useEffect(() => {
+        
         // Function to update the screenWidth state
         const handleResize = () => {
-        setScreenWidth(window.innerWidth);
+            setScreenWidth(window.innerWidth);
         };
+
+        handleResize();
 
         // Add event listener for window resize
         window.addEventListener('resize', handleResize);
@@ -25,7 +28,10 @@ const Navigation = () => {
         }
     }, []);
 
-    const MenuBaedOnScreenWidth = () => {
+    const MenuBasedOnScreenWidth = () => {
+        if (screenWidth == 0) {
+            return <></>
+        }
         if(screenWidth <= 800) {
             return <MobileNav />;
         }
@@ -44,7 +50,7 @@ const Navigation = () => {
                     />
                 </div>
             </Link>
-            {MenuBaedOnScreenWidth()}
+            {MenuBasedOnScreenWidth()}
         </div>
     )
 }
