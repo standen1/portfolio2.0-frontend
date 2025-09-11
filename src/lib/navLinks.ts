@@ -18,3 +18,14 @@ export const navLinks: NavLink[] = [
         linkURL: '/contact'
     }
 ];
+
+export const legalLinks = [
+    {
+        linkText: 'Privacy Policy',
+        linkURL: '/privacy-policy'
+    },
+    {
+        linkText: 'Credits',
+        linkURL: '/credits'
+    },
+];

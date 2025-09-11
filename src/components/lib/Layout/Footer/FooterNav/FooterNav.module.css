@@ -1,0 +1,25 @@
+.FooterNav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.FooterMenu h3 {
+    padding-bottom: 15px;
+}
+
+.FooterNavLinks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.FooterNavLinks a {
+    font-size: 16px;
+    transition: color 0.2s ease-in-out;
+}
+
+.FooterNavLinks a:hover {
+    color: var(--dark-gold);
+}
