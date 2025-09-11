@@ -8,6 +8,8 @@ import {
   satoshiBlackItalic,
 } from '../../../lib/fonts';
 
+import Navigation from './Navigation/Navigation/Navigation';
+
 interface LayoutProps {
   children: ReactNode;
 }
@@ -15,7 +17,8 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={`${satoshiRegular.variable}`}>
-      {children}
+      <Navigation />
+        {children}
     </div>
   );
 };

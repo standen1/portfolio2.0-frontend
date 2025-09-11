@@ -47,3 +47,8 @@ export type Job = {
 }
 
 export type Endpoint = String;
+
+export type NavLink = {
+    linkText: string;
+    linkURL: string;
+}

@@ -1,0 +1,113 @@
+.Hamburger button {
+    width: 25px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.Hamburger button {
+    background-color: transparent;
+    border: none;
+}
+
+.Hamburger button span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--foreground); /* Adjust color as needed */
+    border-radius: 2px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.Hamburger button:hover span {
+  background-color: var(--dark-gold);
+}
+
+.MobileNav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    background-color: #fff;
+    display: flex;
+}
+
+.MobileNavContents {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 1200px;
+  padding: 50px;
+}
+
+.MobileNavList {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 600;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: #fff;
+    display: flex;
+    padding: 50px;
+}
+
+.MobileNavList a {
+    transition: color 0.15s ease-in-out;
+}
+
+.MobileNavList a:hover {
+    color: var(--dark-gold);
+}
+
+.CloseButton {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 110;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+    border: none;
+    background: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.CloseButton:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.CloseButton:before, .CloseButton:after {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+  transform: background-color 0.2s ease-in-out;
+}
+.CloseButton:before {
+  transform: rotate(45deg);
+}
+.CloseButton:after {
+  transform: rotate(-45deg);
+}
