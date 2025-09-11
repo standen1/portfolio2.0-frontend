@@ -1,15 +1,14 @@
 import Head from "next/head";
-import Markdown from "markdown-to-jsx";
 //API Imports
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getAboutPage, getSkillsPage } from '@/lib/api';
-import { AboutPageProps, HomePageProps } from "@/types/interfaces";
+import { HomePageProps } from "@/types/interfaces";
 //Component Imports
 import Hero from "@/components/Hero/Hero";
 import ContentContainer from "@/components/ContentContainer/ContentContainer";
 import About from "@/components/pages/home/About/About";
 import Button from "@/components/Button/Button";
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import Skills from "@/components/pages/home/Skills/Skills";
 
 export default function Home({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
