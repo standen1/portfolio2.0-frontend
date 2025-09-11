@@ -33,7 +33,7 @@ export default function Home({ data }: InferGetStaticPropsType<typeof getStaticP
         {/* ... (meta tags) */}
       </Head>
       <div>
-        <main style={{ backgroundColor: "#F8F8F8", margin: "50px 0 100px" }}>
+        <main style={{ backgroundColor: "#F8F8F8"}}>
           <Hero pageInfo={{
             Title: "Welcome to My Portfolio",
             Description: "This is a showcase of my work.",
@@ -49,7 +49,7 @@ export default function Home({ data }: InferGetStaticPropsType<typeof getStaticP
             <Button onClick={() => setActiveTab("about")} isActive={activeTab === "about"}>About</Button>
             <Button onClick={() => setActiveTab("skills")} isActive={activeTab === "skills"}>Skills</Button>
           </section>
-          <section style={{ paddingTop: "16px", maxWidth: "1200px", margin: "0 auto" }}>
+          <section style={{ margin: "0 auto" }}>
             <ContentContainer>
                 {pageData()}
             </ContentContainer>

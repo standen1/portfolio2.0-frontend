@@ -1,0 +1,15 @@
+.DesktopNavList {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.DesktopNavList a {
+    transition: color 0.15s ease-in-out;
+}
+
+.DesktopNavList a:hover {
+    color: var(--dark-gold);
+}
