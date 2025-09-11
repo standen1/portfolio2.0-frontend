@@ -7,11 +7,11 @@ const Hero: React.FC<HeroProps> = ({pageInfo}) => {
 
     return (
         <div className={styles.Hero}>
-            <Image src={pageInfo.featuredImage.src} alt={pageInfo.featuredImage.alt} fill />
+            <img src={pageInfo.featuredImage.src} alt={pageInfo.featuredImage.alt} />
             <div className={styles.innerContentContainer}>
                 <div className={styles.textContainer}>
-                    <h1 className={styles.title}>{pageInfo.title}</h1>
-                    <p className={styles.description}>{pageInfo.description}</p>
+                    <h1 className={styles.title}>{pageInfo.Title}</h1>
+                    <p className={styles.description}>{pageInfo.Description}</p>
                 </div>
             </div>
         </div>
