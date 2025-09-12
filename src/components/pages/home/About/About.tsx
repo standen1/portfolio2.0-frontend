@@ -3,6 +3,8 @@ import Markdown from "markdown-to-jsx";
 import { AboutPageProps } from "@/types/interfaces";
 import styles from "./About.module.css";
 
+import FreelanceLink from "@/components/FreelanceLink/FreelanceLink";
+
 const About: React.FC<AboutPageProps> = ({ data }) => {
     const profileImage = () => {
         if (data.ProfileImage) {
@@ -20,10 +22,11 @@ const About: React.FC<AboutPageProps> = ({ data }) => {
             </div>
             <div className={styles.AboutContentText}>
                 <h2>{data.PageData.Title}</h2>
-                <div>
+                <div className={styles.AboutTextWrapper}>
                     <Markdown>
                         {data.PageData.Content}
                     </Markdown>
+                    <FreelanceLink />
                 </div>
             </div>
         </div>

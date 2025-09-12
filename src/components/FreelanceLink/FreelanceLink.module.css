@@ -1,0 +1,34 @@
+.FreelanceLink p, .FreelanceLink a {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.FreelanceLink p {
+    padding-bottom: 10px;
+}
+
+.FreelanceLink a {
+    transition: color 0.2s ease-in-out;
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+.Arrow i {
+    border: solid var(--foreground);
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transition: border 0.2s ease;
+}
+
+.FreelanceLink a:hover {
+    color: var(--dark-gold);
+}
+
+.FreelanceLink a:hover .Arrow i {
+    border: solid var(--dark-gold);
+    border-width: 0 1px 1px 0;
+}
