@@ -35,13 +35,13 @@ export default function Home({ data }: InferGetStaticPropsType<typeof getStaticP
       <div>
         <main style={{ backgroundColor: "#F8F8F8"}}>
           <Hero pageInfo={{
-            Title: "Hi, I’m Sean Standen",
-            Description: "I am a full-stack web developer with a passion for building dynamic and modern websites and applications.",
+            Title: data.aboutPage.PageInfo.Title,
+            Description: data.aboutPage.PageInfo.Description,
             featuredImage: {
-              src: "https://intuitive-gem-3495d29428.media.strapiapp.com/jsabet_sandiego_pier_c2cba8806d.jpeg",
-              alt: "A description of the image",
-              width: "800px",
-              height: "600px"
+              src: data.aboutPage.PageInfo.featuredImage.src,
+              alt: data.aboutPage.PageInfo.featuredImage.alt,
+              width: data.aboutPage.PageInfo.featuredImage.width,
+              height: data.aboutPage.PageInfo.featuredImage.height
             }
           }} />
           <section id="about-selections" style={{padding: "30px 0", width: '100%', maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '15px'}}>

@@ -39,12 +39,16 @@ export async function getAboutPage(): Promise<any> {
 
         const pageData: AboutPage = {
             ProfileImage: {
-                src: "https://intuitive-gem-3495d29428.media.strapiapp.com/seanstanden_bb1761511e.jpeg",
+                src: data.ProfileImage.ImageURL,
                 alt: data.ProfileImage.AltText,
                 width: data.ProfileImage.Width,
                 height: data.ProfileImage.Height
             },
-            PageInfo: data.PageInfo,
+            PageInfo: {
+                Title: data.PageInfo.PageTitle,
+                Description: data.PageInfo.PageExcerpt,
+                featuredImage: data.PageInfo.FeaturedImage
+            },
             PageData: data.PageData
         }
         
