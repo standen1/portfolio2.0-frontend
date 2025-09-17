@@ -6,32 +6,35 @@ import styles from "./About.module.css";
 import FreelanceLink from "@/components/FreelanceLink/FreelanceLink";
 
 const About: React.FC<AboutPageProps> = ({ data }) => {
-    const profileImage = () => {
-        if (data.ProfileImage) {
-            return(
-                <img src={data.ProfileImage.src} alt={data.ProfileImage?.alt} width={data.ProfileImage?.width} height={data.ProfileImage?.height} />
-            );
-        }
-        return null;
-    };
+    if (data) {
+        const profileImage = () => {
+            if (data.ProfileImage) {
+                return(
+                    <img src={data.ProfileImage.src} alt={data.ProfileImage?.alt} width={data.ProfileImage?.width} height={data.ProfileImage?.height} />
+                );
+            }
+            return (<></>);
+        };
 
-
-    return (
-        <div className={styles.About}>
-            <div className={styles.ProfileImage}>
-                {profileImage()}
-            </div>
-            <div className={styles.AboutContentText}>
-                <h2>{data.PageData.Title}</h2>
-                <div className={styles.AboutTextWrapper}>
-                    <Markdown>
-                        {data.PageData.Content}
-                    </Markdown>
-                    <FreelanceLink />
+        return (
+            <div className={styles.About}>
+                <div className={styles.ProfileImage}>
+                    {profileImage()}
+                </div>
+                <div className={styles.AboutContentText}>
+                    <h2>{data.PageData.Title}</h2>
+                    <div className={styles.AboutTextWrapper}>
+                        <Markdown>
+                            {data.PageData.Content}
+                        </Markdown>
+                        <FreelanceLink />
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        return (<></>);
+    }
 };
 
 export default About;
