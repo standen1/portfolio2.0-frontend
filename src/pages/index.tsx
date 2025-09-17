@@ -60,7 +60,7 @@ export default function Home({ data }: InferGetStaticPropsType<typeof getStaticP
   );
 }
 
-export const getStaticProps: GetStaticProps<HomePageProps> = async (context) => {
+export const getStaticProps: GetStaticProps<HomePageProps | any> = async () => {
       // Fetch your data here
       const AboutData = await getAboutPage();
       const SkillsData = await getSkillsPage();

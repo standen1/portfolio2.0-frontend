@@ -1,4 +1,4 @@
-import { Job, Project } from "@/types/types";
+import { Job } from "@/types/types";
 
 export interface ResumeCardProps {
     job: Job;

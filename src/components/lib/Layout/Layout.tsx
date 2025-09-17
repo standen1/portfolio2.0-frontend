@@ -1,11 +1,6 @@
 import React, { ReactNode } from 'react';
 import {
-  satoshiLight,
-  satoshiRegular,
-  satoshiMedium,
-  satoshiBold,
-  satoshiBlack,
-  satoshiBlackItalic,
+  satoshiRegular
 } from '../../../lib/fonts';
 
 import Navigation from './Navigation/Navigation/Navigation';

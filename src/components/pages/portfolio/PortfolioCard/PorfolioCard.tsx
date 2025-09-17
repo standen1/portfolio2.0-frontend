@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import { PorfolioCardProps } from "./PortfolioCardProps"
 import styles from "./PortfolioCard.module.css";
 
@@ -15,8 +14,8 @@ const PorfolioCard: React.FC<PorfolioCardProps> = ({ project }) => {
             <a href={project.websiteURL} target="blank">Visit Website <i className="arrow right"></i></a>
         </div>
     );
-
-    const technologiesString = project.technologies.join(', ')
+    
+    const technologiesString = project.technologies ? project.technologies.join(', ') : null;
 
     return (
         <div 
@@ -24,7 +23,7 @@ const PorfolioCard: React.FC<PorfolioCardProps> = ({ project }) => {
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
-            <CardFeaturedImage image={project.featuredImage} />
+            {/* <CardFeaturedImage image={project.featuredImage} /> */}
             <div className={styles.PortfolioCardText}>
                 <h3>
                     {project.name}

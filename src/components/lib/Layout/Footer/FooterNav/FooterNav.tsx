@@ -7,23 +7,32 @@ import { navLinks, legalLinks } from "@/lib/navLinks";
 
 const FooterNav = () => {
     const displayNavLinks = navLinks.map(navLink => {
-        return (
-            <li key={navLink.linkText}>
-                <Link href={navLink.linkURL} >
-                    {navLink.linkText}
-                </Link>
-            </li>
-        );
+        if (navLink.linkURL) {
+            return (
+                <li key={navLink.linkText}>
+                    <Link href={navLink.linkURL} >
+                        {navLink.linkText}
+                    </Link>
+                </li>
+            );
+        }
+        else {
+            return null;
+        }
     });
 
     const displayLegalLinks = legalLinks.map(legalLink => {
-        return (
-            <li key={legalLink.linkText}>
-                <Link href={legalLink.linkURL} >
-                    {legalLink.linkText}
-                </Link>
-            </li>
-        );
+            if (legalLink.linkURL) {
+                return (
+                    <li key={legalLink.linkText}>
+                        <Link href={legalLink.linkURL} >
+                            {legalLink.linkText}
+                        </Link>
+                    </li>
+                );
+            } else {
+                return null;
+            }
     });
 
     return (

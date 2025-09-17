@@ -1,2 +1,2 @@
-export const ABOUT_ENDPOINT: String = "/about-page?populate=*"
-export const SKILLS_ENDPOINT: String = "/skills-page?populate=*"
+export const ABOUT_ENDPOINT: string = "/about-page?populate=*";
+export const SKILLS_ENDPOINT: string = "/skills-page?populate=*";

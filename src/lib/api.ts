@@ -31,26 +31,31 @@ export async function get(endpoint: Endpoint) {
 
 //About Page API Call
 //Returns data: AboutPage
-export async function getAboutPage(): Promise<any> {
+export async function getAboutPage(): Promise<AboutPage | string> {
     try {
         const response = await get(ABOUT_ENDPOINT);
         const data = JSON.parse(response).data;
         //console.log(data)
 
-        const pageData: AboutPage = {
-            ProfileImage: {
+        const pageData: AboutPage = data ? {
+            ProfileImage: data.ProfileImage ? {
                 src: data.ProfileImage.ImageURL,
                 alt: data.ProfileImage.AltText,
                 width: data.ProfileImage.Width,
                 height: data.ProfileImage.Height
-            },
+            }: null,
             PageInfo: {
                 Title: data.PageInfo.PageTitle,
                 Description: data.PageInfo.PageExcerpt,
-                featuredImage: data.PageInfo.FeaturedImage
+                featuredImage: data.FeaturedImage ? {
+                    src: data.FeaturedImage.ImageURL,
+                    alt: data.FeaturedImage.AltText,
+                    width: data.FeaturedImage.Width,
+                    height: data.FeaturedImage.Height
+                } : null
             },
-            PageData: data.PageData
-        }
+            PageData: data.PageData ? data.PageData : null
+        } : null
         
         return pageData;
     } catch (error) {
@@ -60,17 +65,15 @@ export async function getAboutPage(): Promise<any> {
 
 //About Page API Call
 //Returns data: AboutPage
-export async function getSkillsPage(): Promise<any> {
+export async function getSkillsPage(): Promise<SkillsPage | string> {
     try {
         const response = await get(SKILLS_ENDPOINT);
         const data = JSON.parse(response).data;
-        //console.log(data)
 
         const pageData: SkillsPage = {
-            Category: data.Category
+            Category: data ? data.Category: null
         }
 
-        // console.log(pageData.Category)
         
         return pageData.Category;
     } catch (error) {

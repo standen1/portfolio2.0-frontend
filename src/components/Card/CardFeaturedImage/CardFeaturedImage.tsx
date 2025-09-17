@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { CardFeaturedImageProps } from "./CardFeaturedImageProps"
 import styles from "./CardFeaturedImage.module.css";
 

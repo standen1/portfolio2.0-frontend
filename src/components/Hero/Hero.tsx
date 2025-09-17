@@ -1,13 +1,14 @@
-import Image from "next/image";
 import React from "react";
 import { HeroProps } from "./HeroProps";
 import styles from './Hero.module.css';
 
 const Hero: React.FC<HeroProps> = ({pageInfo}) => {
+    const featuredImage = pageInfo.featuredImage ? pageInfo.featuredImage.src : '';
+    const featuredImageAlt = pageInfo.featuredImage ? pageInfo.featuredImage.alt : '';
 
     return (
         <div className={styles.Hero}>
-            <img src={pageInfo.featuredImage.src} alt={pageInfo.featuredImage.alt} />
+            <img src={featuredImage} alt={featuredImageAlt} />
             <div className={styles.innerContentContainer}>
                 <div className={styles.textContainer}>
                     <h1 className={styles.title}>{pageInfo.Title}</h1>

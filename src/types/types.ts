@@ -1,54 +1,54 @@
 export type ImageProps = {
-    src: string;
-    alt: string;
-    width: string;
-    height: string;
-};
+    src: string | undefined;
+    alt: string | undefined;
+    width: string | undefined;
+    height: string | undefined;
+} | null;
 
 export type PageInfo = {
-    Title: string;
-    Description: string;
+    Title: string | undefined;
+    Description: string | undefined;
     featuredImage: ImageProps;
 }
 
 export type SocialLink = {
-    linkURL: string;
+    linkURL: string | undefined;
     icon: ImageProps;
 }
 export type FreelanceLink = {
-    calloutText: string;
-    linkText: string;
-    linkURL: string;
+    calloutText: string | undefined;
+    linkText: string | undefined;
+    linkURL: string | undefined;
 }
 
 export type SkillsTechnologies = {
-    Title: string;
+    Title: string | undefined;
     Content: any;
 }
 
 export type Project = {
-    name: string;
-    websiteURL: string;
-    technologies: string[];
+    name: string | undefined;
+    websiteURL: string | undefined;
+    technologies: string[] | undefined;
     description: any;
     featuredImage?: ImageProps;
 }
 
 export type Job = {
-    companyName: string;
-    jobTitle: string;
-    startDate: string;
-    endDate: string | null;
+    companyName: string | undefined;
+    jobTitle: string | undefined;
+    startDate: string | undefined;
+    endDate: string | undefined;
     description: any;
-    websiteURL: string;
+    websiteURL: string | undefined;
     responsibilities: any;
     projects: Project[];
     featuredImage: ImageProps;
 }
 
-export type Endpoint = String;
+export type Endpoint = string;
 
 export type NavLink = {
-    linkText: string;
-    linkURL: string;
+    linkText: string | undefined;
+    linkURL: string | undefined;
 }

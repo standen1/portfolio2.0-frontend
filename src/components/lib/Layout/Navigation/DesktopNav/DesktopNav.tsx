@@ -7,13 +7,17 @@ import { navLinks } from "@/lib/navLinks";
 
 const DesktopNav = () => {
     const displayLinks = navLinks.map(navLink => {
-        return (
-            <li key={navLink.linkText}>
-                <Link href={navLink.linkURL} >
-                    {navLink.linkText}
-                </Link>
-            </li>
-        );
+        if (navLink.linkURL) {
+            return (
+                <li key={navLink.linkText}>
+                    <Link href={navLink.linkURL} >
+                        {navLink.linkText}
+                    </Link>
+                </li>
+            );
+        } else {
+            return null;
+        }
     });
 
     return (

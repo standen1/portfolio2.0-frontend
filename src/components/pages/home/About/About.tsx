@@ -9,9 +9,10 @@ const About: React.FC<AboutPageProps> = ({ data }) => {
     const profileImage = () => {
         if (data.ProfileImage) {
             return(
-                <img src={data.ProfileImage?.src} alt={data.ProfileImage?.alt} width={data.ProfileImage?.width} height={data.ProfileImage?.height} />
+                <img src={data.ProfileImage.src} alt={data.ProfileImage?.alt} width={data.ProfileImage?.width} height={data.ProfileImage?.height} />
             );
         }
+        return null;
     };
 
 

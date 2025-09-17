@@ -13,13 +13,18 @@ const MobileNav = () => {
     }
 
     const displayLinks = navLinks.map(navLink => {
-        return (
-            <li key={navLink.linkText}>
-                <Link href={navLink.linkURL} >
-                    {navLink.linkText}
-                </Link>
-            </li>
-        );
+         if (navLink.linkURL) {
+            const url = new URL(navLink.linkURL);
+            return (
+                <li key={navLink.linkText}>
+                    <Link href={url} >
+                        {navLink.linkText}
+                    </Link>
+                </li>
+            );
+        } else {
+            return null;
+        }
     });
 
     return (

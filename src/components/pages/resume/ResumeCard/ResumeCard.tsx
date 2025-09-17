@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import { ResumeCardProps } from "./ResumeCardProps"
 import styles from "./ResumeCard.module.css";
 
@@ -17,10 +16,10 @@ const ResumeCard: React.FC<ResumeCardProps> = ({ job }) => {
     );
     
     const dateString = () => {
-        const startDate = new Date(Date.parse(job.startDate)).toLocaleDateString("en-US",{
+        const startDate = job.startDate ? new Date(Date.parse(job.startDate)).toLocaleDateString("en-US",{
             year: "numeric",
             month: "long"
-        });
+        }) : null;
 
         const endDate = job.endDate ? new Date(Date.parse(job.endDate)).toLocaleDateString("en-US",{
             year: "numeric",

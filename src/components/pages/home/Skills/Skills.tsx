@@ -6,7 +6,7 @@ import styles from "./Skills.module.css";
 const Skills: React.FC<SkillsPageProps> = ({ data }) => {
     const skillsContent = data.map((skill: any) => {
         return (
-            <div className={styles.Skill}>
+            <div className={styles.Skill} key={skill.Title}>
                 <h3>{skill.Title}</h3>
                 <Markdown>{skill.Content}</Markdown>
             </div>

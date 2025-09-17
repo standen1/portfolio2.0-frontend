@@ -1,5 +1,4 @@
 import { AboutPage, SkillsPage } from "./pages";
-import { SkillsTechnologies } from "./types";
 
 export interface AboutPageProps {
     data: AboutPage;
