@@ -7,6 +7,7 @@ import { HomePageProps } from "@/types/interfaces";
 import Hero from "@/components/Hero/Hero";
 import ContentContainer from "@/components/ContentContainer/ContentContainer";
 import About from "@/components/pages/home/About/About";
+import ButtonNavWrapper from "@/components/lib/ButtonNavWrapper/ButtonNavWrapper";
 import Button from "@/components/Button/Button";
 import { useState } from "react";
 import Skills from "@/components/pages/home/Skills/Skills";
@@ -44,10 +45,11 @@ export default function Home({ data }: InferGetStaticPropsType<typeof getStaticP
               height: data.aboutPage.PageInfo.featuredImage.height
             }
           }} />
-          <section id="about-selections" style={{padding: "30px 0", width: '100%', maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '15px'}}>
-            {/* Pass the boolean state to the isActive prop */}
-            <Button onClick={() => setActiveTab("about")} isActive={activeTab === "about"}>About</Button>
-            <Button onClick={() => setActiveTab("skills")} isActive={activeTab === "skills"}>Skills</Button>
+          <section id="about-selections">
+            <ButtonNavWrapper>
+              <Button onClick={() => setActiveTab("about")} isActive={activeTab === "about"}>About</Button>
+              <Button onClick={() => setActiveTab("skills")} isActive={activeTab === "skills"}>Skills</Button>
+            </ButtonNavWrapper>
           </section>
           <section style={{ margin: "0 auto" }}>
             <ContentContainer>

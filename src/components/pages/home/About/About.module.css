@@ -34,6 +34,13 @@
     gap: 15px;
 }
 
+@media screen and (max-width: 800px) {
+    .AboutContentText {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
 .AboutTextWrapper {
     display: flex;
     flex-direction: column;

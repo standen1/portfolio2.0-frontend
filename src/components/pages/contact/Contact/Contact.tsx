@@ -4,6 +4,7 @@ import { ContactPageProps } from "@/types/interfaces";
 import styles from "./Contact.module.css";
 
 import FreelanceLink from "@/components/FreelanceLink/FreelanceLink";
+import SocialMediaLinks from "@/components/SocialMediaLinks/SocialMediaLinks";
 
 const Contact: React.FC<ContactPageProps> = ({ data }) => {
     if (data) {
@@ -24,6 +25,10 @@ const Contact: React.FC<ContactPageProps> = ({ data }) => {
                         <Markdown>
                             {typeof data.PageData.Content === "string" ? data.PageData.Content : ""}
                         </Markdown>
+                        <div className={styles.SocialContact}>
+                            <p>Give me a follow or send me a message on any of the following platforms.</p>
+                            <SocialMediaLinks />
+                        </div>
                         <FreelanceLink />
                     </div>
                 </div>
