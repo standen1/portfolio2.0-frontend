@@ -8,6 +8,7 @@ import { default as ContactPage } from "@/components/pages/contact/Contact/Conta
 import Hero from "@/components/Hero/Hero";
 import ContentContainer from "@/components/ContentContainer/ContentContainer";
 import Button from "@/components/Button/Button";
+import ButtonNavWrapper from "@/components/lib/ButtonNavWrapper/ButtonNavWrapper";
 
 export default function Contact({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
 
@@ -29,9 +30,10 @@ export default function Contact({ data }: InferGetStaticPropsType<typeof getStat
               height: data.PageInfo.featuredImage.height
             } : null
           }} />
-          <section id="contact-selections" style={{padding: "30px 0", width: '100%', maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '15px'}}>
-            {/* Pass the boolean state to the isActive prop */}
-            <Button onClick={() => (null)} isActive={true}>Contact</Button>
+          <section id="contact-selections">
+            <ButtonNavWrapper>
+              <Button onClick={() => (null)} isActive={true}>Contact</Button>
+            </ButtonNavWrapper>
           </section>
           <section style={{ margin: "0 auto" }}>
             <ContentContainer>

@@ -1,17 +1,15 @@
-.Navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.ButtonNavWrapper {
+    padding: 30px 0;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 0;
+    display: flex;
+    gap: 15px;
 }
 
 @media screen and (max-width: 800px) {
-    .Navigation {
+    .ButtonNavWrapper {
         padding-left: 20px;
         padding-right: 20px;
     }
-    
 }
