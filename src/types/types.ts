@@ -34,16 +34,19 @@ export type Project = {
     featuredImage?: ImageProps;
 }
 
+export type Respnsibility = {
+    name: string | undefined;
+    description: any;
+}
+
 export type Job = {
     companyName: string | undefined;
     jobTitle: string | undefined;
     startDate: string | undefined;
+    currentlyEmployed: boolean | undefined;
     endDate: string | undefined;
-    description: any;
     websiteURL: string | undefined;
-    responsibilities: any;
-    projects: Project[];
-    featuredImage: ImageProps;
+    responsibilities: Respnsibility[] | undefined;
 }
 
 export type Endpoint = string;
@@ -52,3 +55,5 @@ export type NavLink = {
     linkText: string | undefined;
     linkURL: string | undefined;
 }
+
+export type EmploymentHistory = Job[] | null;

@@ -1,7 +1,7 @@
 import { Endpoint } from "@/types/types";
-import { AboutPage, SkillsPage, ContactPage } from "@/types/pages";
+import { AboutPage, SkillsPage, ContactPage, ResumePage } from "@/types/pages";
 
-import { ABOUT_ENDPOINT, SKILLS_ENDPOINT, CONTACT_ENDPOINT } from '@/lib/endpoints';
+import { ABOUT_ENDPOINT, SKILLS_ENDPOINT, CONTACT_ENDPOINT, RESUME_ENDPOINT } from '@/lib/endpoints';
 
 
 //Main API Call to Strapi App Backend
@@ -116,3 +116,40 @@ export async function getContactPage(): Promise<ContactPage | string> {
         return "Something Went Wrong";
     }
 } 
+
+//Resume Page API Call
+//Returns data: string (URL to resume)
+export async function getResume(): Promise<ResumePage | string> {
+    try {
+        const response = await get(RESUME_ENDPOINT);
+        const data = JSON.parse(response).data;
+
+        const resumeData: ResumePage = data ? {
+            PageInfo: {
+                Title: data.PageInfo.PageTitle,
+                Description: data.PageInfo.PageExcerpt,
+                featuredImage: data.FeaturedImage ? {
+                    src: data.FeaturedImage.ImageURL,
+                    alt: data.FeaturedImage.AltText,
+                    width: data.FeaturedImage.Width,
+                    height: data.FeaturedImage.Height
+                } : null
+            },
+            EmploymentHistory: data.Employer ? data.Employer.map((employer: any) => {
+                return {
+                    companyName: employer.CompanyName,
+                    jobTitle: employer.Title,
+                    startDate: employer.StartDate,
+                    currentlyEmployed: employer.CurrentlyEmployed,
+                    endDate: employer.EndDate ? employer.EndDate : null,
+                    websiteURL: employer.EmployerWebsite ? employer.EmployerWebsite : null,
+                    responsibilities: employer.Responsibilities ? employer.Responsibilities : null
+                }
+            }) : null
+        } : null;
+
+        return resumeData;
+    } catch (error) {
+        return "Something Went Wrong";
+    }
+}

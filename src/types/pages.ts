@@ -15,3 +15,8 @@ export type ContactPage = {
     PageInfo: types.PageInfo;
     PageData: types.SkillsTechnologies;
 } | null;
+
+export type ResumePage = {
+    PageInfo: types.PageInfo;
+    EmploymentHistory?: types.EmploymentHistory;
+} | null;
