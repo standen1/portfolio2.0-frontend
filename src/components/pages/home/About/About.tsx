@@ -9,32 +9,34 @@ const About: React.FC<AboutPageProps> = ({ data }) => {
     if (data) {
         const profileImage = () => {
             if (data.ProfileImage) {
-                return(
-                    <img src={data.ProfileImage.src} alt={data.ProfileImage?.alt} width={data.ProfileImage?.width} height={data.ProfileImage?.height} />
+                return (
+                    <img
+                        src={data.ProfileImage.src || ""}
+                        alt={data.ProfileImage?.alt || ""}
+                        width={data.ProfileImage?.width || ""}
+                        height={data.ProfileImage?.height || ""}
+                    />
                 );
             }
-            return (<></>);
+            return null;
         };
 
         return (
             <div className={styles.About}>
-                <div className={styles.ProfileImage}>
-                    {profileImage()}
-                </div>
+                <div className={styles.ProfileImage}>{profileImage()}</div>
                 <div className={styles.AboutContentText}>
-                    <h2>{data.PageData.Title}</h2>
+                    <h2>{data.PageData?.Title || ""}</h2>
                     <div className={styles.AboutTextWrapper}>
                         <Markdown>
-                            {data.PageData.Content}
+                            {typeof data.PageData?.Content === "string" ? data.PageData.Content : ""}
                         </Markdown>
                         <FreelanceLink />
                     </div>
                 </div>
             </div>
         );
-    } else {
-        return (<></>);
     }
+    return null;
 };
 
 export default About;
