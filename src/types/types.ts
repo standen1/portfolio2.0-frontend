@@ -24,7 +24,7 @@ export type FreelanceLink = {
 export type SkillsTechnologies = {
     Title: string | undefined;
     Content: any;
-}
+} | null;
 
 export type Project = {
     name: string | undefined;
