@@ -1,7 +1,7 @@
 import { Endpoint } from "@/types/types";
-import { AboutPage, SkillsPage } from "@/types/pages";
+import { AboutPage, SkillsPage, ContactPage } from "@/types/pages";
 
-import { ABOUT_ENDPOINT, SKILLS_ENDPOINT } from '@/lib/endpoints';
+import { ABOUT_ENDPOINT, SKILLS_ENDPOINT, CONTACT_ENDPOINT } from '@/lib/endpoints';
 
 
 //Main API Call to Strapi App Backend
@@ -63,8 +63,8 @@ export async function getAboutPage(): Promise<AboutPage | string> {
     }
 } 
 
-//About Page API Call
-//Returns data: AboutPage
+//Skills Page API Call
+//Returns data: SkillsPage
 export async function getSkillsPage(): Promise<SkillsPage | string> {
     try {
         const response = await get(SKILLS_ENDPOINT);
@@ -76,6 +76,42 @@ export async function getSkillsPage(): Promise<SkillsPage | string> {
 
         
         return pageData.Category;
+    } catch (error) {
+        return "Something Went Wrong";
+    }
+} 
+
+//About Page API Call
+//Returns data: AboutPage
+export async function getContactPage(): Promise<ContactPage | string> {
+    try {
+        const response = await get(CONTACT_ENDPOINT);
+        const data = JSON.parse(response).data;
+
+        const pageData: ContactPage = data ? {
+            ProfileImage: data.ProfileImage ? {
+                src: data.ProfileImage.ImageURL,
+                alt: data.ProfileImage.AltText,
+                width: data.ProfileImage.Width,
+                height: data.ProfileImage.Height
+            }: null,
+            PageInfo: {
+                Title: data.PageInfo.PageTitle,
+                Description: data.PageInfo.PageExcerpt,
+                featuredImage: data.FeaturedImage ? {
+                    src: data.FeaturedImage.ImageURL,
+                    alt: data.FeaturedImage.AltText,
+                    width: data.FeaturedImage.Width,
+                    height: data.FeaturedImage.Height
+                } : null
+            },
+            PageData: data.PageContent[0] ? {
+                Title: data.PageContent[0].Title ? data.PageContent[0].Title : null,
+                Content: data.PageContent[0].Content ? data.PageContent[0].Content : null
+            } : null
+        } : null;
+        
+        return pageData;
     } catch (error) {
         return "Something Went Wrong";
     }

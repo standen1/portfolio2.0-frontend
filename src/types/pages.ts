@@ -9,3 +9,9 @@ export type AboutPage = {
 export type SkillsPage = {
     Category: any;
 } | null;
+
+export type ContactPage = {
+    ProfileImage?: types.ImageProps;
+    PageInfo: types.PageInfo;
+    PageData: types.SkillsTechnologies;
+} | null;

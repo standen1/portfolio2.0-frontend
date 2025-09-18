@@ -1,0 +1,41 @@
+import React from "react";
+import Markdown from "markdown-to-jsx";
+import { ContactPageProps } from "@/types/interfaces";
+import styles from "./Contact.module.css";
+
+import FreelanceLink from "@/components/FreelanceLink/FreelanceLink";
+
+const Contact: React.FC<ContactPageProps> = ({ data }) => {
+    if (data) {
+        const profileImage = () => {
+            if (data.ProfileImage) {
+                return(
+                    <img src={data.ProfileImage.src} alt={data.ProfileImage?.alt} width={data.ProfileImage?.width} height={data.ProfileImage?.height} />
+                );
+            }
+            return (<></>);
+        };
+        if (data.PageData) {
+        return (
+            <div className={styles.Contact}>
+                <div className={styles.ContactContentText}>
+                    <h2>{data.PageData.Title || ""}</h2>
+                    <div className={styles.ContactTextWrapper}>
+                        <Markdown>
+                            {typeof data.PageData.Content === "string" ? data.PageData.Content : ""}
+                        </Markdown>
+                        <FreelanceLink />
+                    </div>
+                </div>
+                <div className={styles.ProfileImage}>
+                    {profileImage()}
+                </div>
+            </div>
+        );
+    }
+    } else {
+        return (<></>);
+    }
+};
+
+export default Contact;
