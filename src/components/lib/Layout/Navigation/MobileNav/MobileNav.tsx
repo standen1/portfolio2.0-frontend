@@ -14,10 +14,9 @@ const MobileNav = () => {
 
     const displayLinks = navLinks.map(navLink => {
          if (navLink.linkURL) {
-            const url = new URL(navLink.linkURL);
             return (
                 <li key={navLink.linkText}>
-                    <Link href={url} >
+                    <Link href={navLink.linkURL} onClick={() => setIsOpen(false)}>
                         {navLink.linkText}
                     </Link>
                 </li>
