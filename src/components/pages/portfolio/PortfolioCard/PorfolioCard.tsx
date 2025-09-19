@@ -14,8 +14,6 @@ const PorfolioCard: React.FC<PorfolioCardProps> = ({ project }) => {
             <a href={project.websiteURL} target="blank">Visit Website <i className="arrow right"></i></a>
         </div>
     );
-    
-    const technologiesString = project.technologies ? project.technologies.join(', ') : null;
 
     return (
         <div 
@@ -28,9 +26,6 @@ const PorfolioCard: React.FC<PorfolioCardProps> = ({ project }) => {
                 <h3>
                     {project.name}
                 </h3>
-                <p>
-                    {technologiesString}
-                </p>
             </div>
             { hover && hoverComponent }
         </div>
