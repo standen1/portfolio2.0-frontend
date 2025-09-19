@@ -24,8 +24,8 @@ export const legalLinks = [
         linkText: 'Privacy Policy',
         linkURL: '/privacy-policy'
     },
-    {
-        linkText: 'Credits',
-        linkURL: '/credits'
-    },
+    // {
+    //     linkText: 'Credits',
+    //     linkURL: '/credits'
+    // },
 ];
