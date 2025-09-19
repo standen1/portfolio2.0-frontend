@@ -2,6 +2,9 @@ import UnderConstruction from "@/components/lib/UnderConstruction/UnderConstruct
 import Head from "next/head";
 import { default as PortfolioPage } from "@/components/pages/portfolio/Portfolio";
 import Hero from "@/components/Hero/Hero";
+import Button from "@/components/Button/Button";
+import ButtonNavWrapper from "@/components/lib/ButtonNavWrapper/ButtonNavWrapper";
+// import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 
 export default function Portfolio() {
   const data = {
@@ -51,6 +54,11 @@ export default function Portfolio() {
               height: data.PageInfo.featuredImage.height
             } : null
           }} />
+          <section id="portfolio-selections">
+            <ButtonNavWrapper>
+              <Button onClick={() => (null)} isActive={true}>Portfolio</Button>
+            </ButtonNavWrapper>
+          </section>
           <section id="portfolio-page">
             <PortfolioPage data={data.Projects} />
           </section> */}

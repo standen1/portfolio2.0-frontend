@@ -17,7 +17,7 @@
     padding: 10px;
     width: 100%;
     height: 100%;
-    background: var(--gold);
+    background: rgba(0, 0, 0, 0.8);
     justify-content: center;
     gap: 15px;
     position: absolute;
@@ -32,9 +32,28 @@
 }
 
 .PortfolioCardHover a {
-    color: var(--foreground);
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    color: white;
+    transition: color 0.2s ease-in-out;
 }
 
 .PortfolioCardHover a:hover {
-    opacity: 0.6;
+    color: var(--gold);
+}
+
+.Arrow i {
+    border: solid white;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transition: border 0.2s ease;
+}
+
+.PortfolioCardHover a:hover .Arrow i {
+    border: solid var(--gold);
+    border-width: 0 1px 1px 0;
 }
