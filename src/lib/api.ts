@@ -126,7 +126,6 @@ export async function getResumePage(): Promise<ResumePage | string> {
         
         const jobsResponse = await get(JOBS_ENDPOINT);
         const jobsData = JSON.parse(jobsResponse).data;
-        console.log(jobsData)
 
         const resumeData: ResumePage = pageData ? {
             PageInfo: {
