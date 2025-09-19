@@ -1,21 +1,21 @@
 import Head from "next/head";
 //API Imports
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { getContactPage } from '@/lib/api';
-import { ContactPageProps } from "@/types/interfaces";
+import { getPrivacyPolicyPage } from '@/lib/api';
+import { PrivacyPolicyPageProps } from "@/types/interfaces";
 //Component Imports
-import { default as ContactPage } from "@/components/pages/contact/Contact";
+import { default as PrivacyPolicyPage } from "@/components/pages/privacy-policy/PrivacyPolicy";
 import Hero from "@/components/Hero/Hero";
 import ContentContainer from "@/components/ContentContainer/ContentContainer";
 import Button from "@/components/Button/Button";
 import ButtonNavWrapper from "@/components/lib/ButtonNavWrapper/ButtonNavWrapper";
 
-export default function Contact({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function PrivacyPolicy({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   return (
     <>
       <Head>
-        <title>Sean Standen | Contact</title>
+        <title>Sean Standen | Privacy Policy</title>
         {/* ... (meta tags) */}
       </Head>
       <div>
@@ -37,7 +37,7 @@ export default function Contact({ data }: InferGetStaticPropsType<typeof getStat
           </section>
           <section style={{ margin: "0 auto" }}>
             <ContentContainer>
-                <ContactPage data={data} />
+                <PrivacyPolicyPage data={data} />
             </ContentContainer>
           </section>
         </main>
@@ -46,13 +46,13 @@ export default function Contact({ data }: InferGetStaticPropsType<typeof getStat
   );
 }
 
-export const getStaticProps: GetStaticProps<ContactPageProps | any> = async () => {
+export const getStaticProps: GetStaticProps<PrivacyPolicyPageProps | any> = async () => {
       // Fetch your data here
-      const contactPage = await getContactPage();
+      const privacyPolicyPage = await getPrivacyPolicyPage();
 
       return {
         props: {
-          data: contactPage
+          data: privacyPolicyPage
         },
       };
 };

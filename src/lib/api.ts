@@ -1,5 +1,5 @@
 import { Endpoint } from "@/types/types";
-import { AboutPage, SkillsPage, ContactPage, ResumePage } from "@/types/pages";
+import { AboutPage, SkillsPage, ContactPage, ResumePage, PrivacyPolicyPage } from "@/types/pages";
 
 import { ABOUT_ENDPOINT, SKILLS_ENDPOINT, CONTACT_ENDPOINT, RESUME_ENDPOINT, JOBS_ENDPOINT } from '@/lib/endpoints';
 
@@ -157,6 +157,34 @@ export async function getResumePage(): Promise<ResumePage | string> {
         } : null;
 
         return resumeData;
+    } catch (error) {
+        return "Something Went Wrong";
+    }
+}
+
+export async function getPrivacyPolicyPage(): Promise<PrivacyPolicyPage | string> {
+    try {
+        const response = await get("/privacy-policy?populate=*");
+        const data = JSON.parse(response).data;
+        //console.log(data)
+        const privacyPolicyData: PrivacyPolicyPage = data ? {
+            PageInfo: {
+                Title: data.PageInfo.PageTitle,
+                Description: data.PageInfo.PageExcerpt,
+                featuredImage: data.FeaturedImage ? {
+                    src: data.FeaturedImage.ImageURL,
+                    alt: data.FeaturedImage.AltText,
+                    width: data.FeaturedImage.Width,
+                    height: data.FeaturedImage.Height
+                } : null
+            },
+            PageData: data.PrivacyPolicyPageContent ? {
+                Title: data.PrivacyPolicyPageContent.Title ? data.PrivacyPolicyPageContent.Title : null,
+                Content: data.PrivacyPolicyPageContent.Content ? data.PrivacyPolicyPageContent.Content : null
+            } : null
+        } : null;
+        
+        return privacyPolicyData;
     } catch (error) {
         return "Something Went Wrong";
     }
