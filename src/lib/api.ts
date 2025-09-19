@@ -1,7 +1,7 @@
 import { Endpoint } from "@/types/types";
 import { AboutPage, SkillsPage, ContactPage, ResumePage } from "@/types/pages";
 
-import { ABOUT_ENDPOINT, SKILLS_ENDPOINT, CONTACT_ENDPOINT, RESUME_ENDPOINT } from '@/lib/endpoints';
+import { ABOUT_ENDPOINT, SKILLS_ENDPOINT, CONTACT_ENDPOINT, RESUME_ENDPOINT, JOBS_ENDPOINT } from '@/lib/endpoints';
 
 
 //Main API Call to Strapi App Backend
@@ -119,23 +119,27 @@ export async function getContactPage(): Promise<ContactPage | string> {
 
 //Resume Page API Call
 //Returns data: string (URL to resume)
-export async function getResume(): Promise<ResumePage | string> {
+export async function getResumePage(): Promise<ResumePage | string> {
     try {
-        const response = await get(RESUME_ENDPOINT);
-        const data = JSON.parse(response).data;
+        const pageResponse = await get(RESUME_ENDPOINT);
+        const pageData = JSON.parse(pageResponse).data;
+        
+        const jobsResponse = await get(JOBS_ENDPOINT);
+        const jobsData = JSON.parse(jobsResponse).data;
+        console.log(jobsData)
 
-        const resumeData: ResumePage = data ? {
+        const resumeData: ResumePage = pageData ? {
             PageInfo: {
-                Title: data.PageInfo.PageTitle,
-                Description: data.PageInfo.PageExcerpt,
-                featuredImage: data.FeaturedImage ? {
-                    src: data.FeaturedImage.ImageURL,
-                    alt: data.FeaturedImage.AltText,
-                    width: data.FeaturedImage.Width,
-                    height: data.FeaturedImage.Height
+                Title: pageData.PageInfo.PageTitle,
+                Description: pageData.PageInfo.PageExcerpt,
+                featuredImage: pageData.FeaturedImage ? {
+                    src: pageData.FeaturedImage.ImageURL,
+                    alt: pageData.FeaturedImage.AltText,
+                    width: pageData.FeaturedImage.Width,
+                    height: pageData.FeaturedImage.Height
                 } : null
             },
-            EmploymentHistory: data.Employer ? data.Employer.map((employer: any) => {
+            EmploymentHistory: jobsData.Employer ? jobsData.Employer.map((employer: any) => {
                 return {
                     companyName: employer.CompanyName,
                     jobTitle: employer.Title,
@@ -143,7 +147,12 @@ export async function getResume(): Promise<ResumePage | string> {
                     currentlyEmployed: employer.CurrentlyEmployed,
                     endDate: employer.EndDate ? employer.EndDate : null,
                     websiteURL: employer.EmployerWebsite ? employer.EmployerWebsite : null,
-                    responsibilities: employer.Responsibilities ? employer.Responsibilities : null
+                    responsibilities: employer.JobResponsibility ? employer.JobResponsibility.map((responsibility: any) => {
+                        return {
+                            name: responsibility.ResponsibilityTitle,
+                            description: responsibility.Description
+                        }
+                    }) : null
                 }
             }) : null
         } : null;

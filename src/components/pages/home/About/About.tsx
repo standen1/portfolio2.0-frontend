@@ -36,7 +36,9 @@ const About: React.FC<AboutPageProps> = ({ data }) => {
             </div>
         );
     }
-    return null;
+    return (
+        <div className={styles.Error}>Oops, something went wrong!  Try refreshing the page.</div>
+    );
 };
 
 export default About;

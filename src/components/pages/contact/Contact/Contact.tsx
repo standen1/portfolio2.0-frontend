@@ -39,7 +39,9 @@ const Contact: React.FC<ContactPageProps> = ({ data }) => {
         );
     }
     } else {
-        return (<></>);
+        return (
+            <div className={styles.Error}>Oops, something went wrong!  Try refreshing the page.</div>
+        );
     }
 };
 

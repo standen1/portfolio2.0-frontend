@@ -6,4 +6,6 @@ export const SKILLS_ENDPOINT: string = "/skills-page?populate=*";
 export const CONTACT_ENDPOINT: string = "/contact-page?populate=*";
 
 //Resume page endpoint
-export const RESUME_ENDPOINT: string = "/resume?populate=*";
+export const RESUME_ENDPOINT: string = "/resume?populate[0]=PageInfo&populate[1]=FeaturedImage";
+
+export const JOBS_ENDPOINT: string = "/resume?populate=Employer.JobResponsibility";
