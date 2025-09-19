@@ -1,0 +1,28 @@
+.Job {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.Projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.Project {
+    display: block;
+    max-width: 300px;
+}
+
+.Project h4 {
+    margin-bottom: 5px;
+}
+
+.Project ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 20px;
+}

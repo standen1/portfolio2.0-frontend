@@ -1,0 +1,34 @@
+.ResumeLink p, .ResumeLink a {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.ResumeLink p {
+    padding-bottom: 10px;
+}
+
+.ResumeLink a {
+    transition: color 0.2s ease-in-out;
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+.Arrow i {
+    border: solid white;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transition: border 0.2s ease;
+}
+
+.ResumeLink a:hover {
+    color: var(--gold);
+}
+
+.ResumeLink a:hover .Arrow i {
+    border: solid var(--gold);
+    border-width: 0 1px 1px 0;
+}

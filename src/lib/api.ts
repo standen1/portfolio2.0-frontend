@@ -1,7 +1,7 @@
 import { Endpoint } from "@/types/types";
-import { AboutPage, SkillsPage, ContactPage } from "@/types/pages";
+import { AboutPage, SkillsPage, ContactPage, ResumePage } from "@/types/pages";
 
-import { ABOUT_ENDPOINT, SKILLS_ENDPOINT, CONTACT_ENDPOINT } from '@/lib/endpoints';
+import { ABOUT_ENDPOINT, SKILLS_ENDPOINT, CONTACT_ENDPOINT, RESUME_ENDPOINT, JOBS_ENDPOINT } from '@/lib/endpoints';
 
 
 //Main API Call to Strapi App Backend
@@ -116,3 +116,48 @@ export async function getContactPage(): Promise<ContactPage | string> {
         return "Something Went Wrong";
     }
 } 
+
+//Resume Page API Call
+//Returns data: string (URL to resume)
+export async function getResumePage(): Promise<ResumePage | string> {
+    try {
+        const pageResponse = await get(RESUME_ENDPOINT);
+        const pageData = JSON.parse(pageResponse).data;
+        
+        const jobsResponse = await get(JOBS_ENDPOINT);
+        const jobsData = JSON.parse(jobsResponse).data;
+
+        const resumeData: ResumePage = pageData ? {
+            PageInfo: {
+                Title: pageData.PageInfo.PageTitle,
+                Description: pageData.PageInfo.PageExcerpt,
+                featuredImage: pageData.FeaturedImage ? {
+                    src: pageData.FeaturedImage.ImageURL,
+                    alt: pageData.FeaturedImage.AltText,
+                    width: pageData.FeaturedImage.Width,
+                    height: pageData.FeaturedImage.Height
+                } : null
+            },
+            EmploymentHistory: jobsData.Employer ? jobsData.Employer.map((employer: any) => {
+                return {
+                    companyName: employer.CompanyName,
+                    jobTitle: employer.Title,
+                    startDate: employer.StartDate,
+                    currentlyEmployed: employer.CurrentlyEmployed,
+                    endDate: employer.EndDate ? employer.EndDate : null,
+                    websiteURL: employer.EmployerWebsite ? employer.EmployerWebsite : null,
+                    responsibilities: employer.JobResponsibility ? employer.JobResponsibility.map((responsibility: any) => {
+                        return {
+                            name: responsibility.ResponsibilityTitle,
+                            description: responsibility.Description
+                        }
+                    }) : null
+                }
+            }) : null
+        } : null;
+
+        return resumeData;
+    } catch (error) {
+        return "Something Went Wrong";
+    }
+}

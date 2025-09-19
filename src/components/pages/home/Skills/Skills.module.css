@@ -11,3 +11,10 @@
     max-width: 300px;
     text-align: left;
 }
+
+@media screen and (max-width: 800px) {
+    .Skills {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
