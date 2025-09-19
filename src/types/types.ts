@@ -29,7 +29,6 @@ export type SkillsTechnologies = {
 export type Project = {
     name: string | undefined;
     websiteURL: string | undefined;
-    technologies: string[] | undefined;
     description: any;
     featuredImage?: ImageProps;
 }

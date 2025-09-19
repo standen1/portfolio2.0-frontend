@@ -25,3 +25,8 @@ export type PrivacyPolicyPage = {
     PageInfo: types.PageInfo;
     PageData: types.SkillsTechnologies;
 } | null;
+
+export type PortfolioPage = {
+    PageInfo: types.PageInfo;
+    Projects: types.Project[];
+} | null;
