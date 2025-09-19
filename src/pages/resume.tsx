@@ -9,8 +9,7 @@ import ContentContainer from "@/components/ContentContainer/ContentContainer";
 import Button from "@/components/Button/Button";
 import ButtonNavWrapper from "@/components/lib/ButtonNavWrapper/ButtonNavWrapper";
 import { default as ResumePage } from "@/components/pages/resume/Resume";
-
-
+import ResumeLink from "@/components/pages/resume/ResumeLink/ResumeLink";
 export default function Resume({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   return (
@@ -30,7 +29,9 @@ export default function Resume({ data }: InferGetStaticPropsType<typeof getStati
               width: data.PageInfo.featuredImage.width,
               height: data.PageInfo.featuredImage.height
             } : null
-          }} />
+          }}>
+            <ResumeLink />
+          </Hero>
           <section id="resume-selections">
             <ButtonNavWrapper>
               <Button onClick={() => (null)} isActive={true}>Resume</Button>
