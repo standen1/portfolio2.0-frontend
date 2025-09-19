@@ -9,3 +9,5 @@ export const CONTACT_ENDPOINT: string = "/contact-page?populate=*";
 export const RESUME_ENDPOINT: string = "/resume?populate[0]=PageInfo&populate[1]=FeaturedImage";
 
 export const JOBS_ENDPOINT: string = "/resume?populate=Employer.JobResponsibility";
+
+export const PRIVACY_POLICY_ENDPOINT: string = "/privacy-policy?populate=*";

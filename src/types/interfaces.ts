@@ -1,4 +1,4 @@
-import { AboutPage, ContactPage, ResumePage, SkillsPage } from "./pages";
+import { AboutPage, ContactPage, PrivacyPolicyPage, ResumePage, SkillsPage } from "./pages";
 
 export interface AboutPageProps {
     data: AboutPage;
@@ -21,4 +21,8 @@ export interface ContactPageProps {
 
 export interface ResumePageProps {
     data: ResumePage
+}
+
+export interface PrivacyPolicyPageProps {
+    data: PrivacyPolicyPage
 }

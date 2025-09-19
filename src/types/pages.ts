@@ -20,3 +20,8 @@ export type ResumePage = {
     PageInfo: types.PageInfo;
     EmploymentHistory?: types.EmploymentHistory;
 } | null;
+
+export type PrivacyPolicyPage = {
+    PageInfo: types.PageInfo;
+    PageData: types.SkillsTechnologies;
+} | null;

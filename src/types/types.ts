@@ -34,7 +34,7 @@ export type Project = {
     featuredImage?: ImageProps;
 }
 
-export type Respnsibility = {
+export type Responsibility = {
     name: string | undefined;
     description: any;
 }
@@ -46,7 +46,7 @@ export type Job = {
     currentlyEmployed: boolean | undefined;
     endDate: string | undefined;
     websiteURL: string | undefined;
-    responsibilities: Respnsibility[] | undefined;
+    responsibilities: Responsibility[] | undefined;
 }
 
 export type Endpoint = string;
