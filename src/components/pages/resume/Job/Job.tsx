@@ -16,7 +16,11 @@ const Job: React.FC<JobProps> = ({ job }) => {
                 <h2>{job.companyName}</h2>
                 <h3>{job.jobTitle}</h3>
                 <p className={styles.EmploymentDates}>{job.startDate} - {job.endDate || "Present"}</p>
-                {job.websiteURL && <p>Website: <a href={job.websiteURL} target="_blank" rel="noopener noreferrer">{job.websiteURL}</a></p>}
+                {job.websiteURL && (
+                    <p>Website: <a href={job.websiteURL} target="_blank" rel="noopener noreferrer" className={styles.WebsiteLink}>
+                        {job.websiteURL.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                    </a></p>
+                )}
             </div>
             <div className={styles.Projects}>
                 {projects}

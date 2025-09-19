@@ -26,3 +26,13 @@
     gap: 5px;
     padding-left: 20px;
 }
+
+.WebsiteLink {
+    font-weight: 600;
+    color: var(--foreground);
+    transition: color 0.2s ease-in-out;
+}
+
+.WebsiteLink:hover {
+    color: var(--dark-gold);
+}
