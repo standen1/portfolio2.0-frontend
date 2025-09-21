@@ -1,7 +1,7 @@
 import { Endpoint } from "@/types/types";
-import { AboutPage, SkillsPage, ContactPage, ResumePage, PrivacyPolicyPage } from "@/types/pages";
+import { AboutPage, SkillsPage, ContactPage, ResumePage, PrivacyPolicyPage, PortfolioPage } from "@/types/pages";
 
-import { ABOUT_ENDPOINT, SKILLS_ENDPOINT, CONTACT_ENDPOINT, RESUME_ENDPOINT, JOBS_ENDPOINT } from '@/lib/endpoints';
+import { ABOUT_ENDPOINT, SKILLS_ENDPOINT, CONTACT_ENDPOINT, RESUME_ENDPOINT, JOBS_ENDPOINT, PORTFOLIO_ENDPOINT, PROJECTS_ENDPOINT } from '@/lib/endpoints';
 
 
 //Main API Call to Strapi App Backend
@@ -185,6 +185,46 @@ export async function getPrivacyPolicyPage(): Promise<PrivacyPolicyPage | string
         } : null;
         
         return privacyPolicyData;
+    } catch (error) {
+        return "Something Went Wrong";
+    }
+}
+
+export async function getPortfolioPage(): Promise<PortfolioPage | string> {
+    try {
+        const pageResponse = await get(PORTFOLIO_ENDPOINT);
+        const pageData = JSON.parse(pageResponse).data;
+
+        const projectsResponse = await get(PROJECTS_ENDPOINT);
+        const projects = JSON.parse(projectsResponse).data.Project;
+        
+        const portfolioData: PortfolioPage = pageData ? {
+            PageInfo: {
+                Title: pageData.PageInfo.PageTitle,
+                Description: pageData.PageInfo.PageExcerpt,
+                featuredImage: pageData.FeaturedImage ? {
+                    src: pageData.FeaturedImage.ImageURL,
+                    alt: pageData.FeaturedImage.AltText,
+                    width: pageData.FeaturedImage.Width,
+                    height: pageData.FeaturedImage.Height
+                } : null
+            },
+            Projects: projects ? projects.map((project: any) => {
+                return {
+                    name: project.ProjectInfo ? project.ProjectInfo.ProjectName : null,
+                    websiteURL: project.ProjectInfo ? project.ProjectInfo.WebsiteURL : null,
+                    description: project.ProjectInfo ? project.ProjectInfo.Description : null,
+                    featuredImage: project.ThumbnailImage ? {
+                        src: project.ThumbnailImage.ImageURL,
+                        alt: project.ThumbnailImage.AltText,
+                        width: project.ThumbnailImage.Width,
+                        height: project.ThumbnailImage.Height
+                    } : null,
+                }
+            }) : null
+        } : null;
+
+        return portfolioData;
     } catch (error) {
         return "Something Went Wrong";
     }

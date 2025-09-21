@@ -1,18 +1,26 @@
 .Card {
     display: block;
     background-color: white;
-    width: 100%;
+    width: 80%;
     overflow: hidden;
+    border-radius: var(--border-radius);
+    margin: auto;
 }
 
 .Card:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 700px) {
     .Card {
-        border-radius: var(--border-radius);
         width: 250px;
         height: 330px;
     }
+}
+
+@media screen and (max-width: 700px) {
+    .Card {
+        height: 350px;
+    }
+    
 }
