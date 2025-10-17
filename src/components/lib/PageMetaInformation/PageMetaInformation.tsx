@@ -25,7 +25,7 @@ const PageMetaInformation = (pageInfo: PageMetaInformationProps['pageInfo']) => 
 
         <title>{pageInfo.title}</title>
         <meta name="description" content={pageInfo.description} />
-        <meta name="image" content="/Site_Thumbnail.jpg" />
+        <meta name="image" content="/site_thumbnail.jpg" />
         <link rel="canonical" href={pageInfo.canonicalUrl} />
         <meta name="theme-color" content="#ffffff" />
         {/* End Site Meta Tags */}
@@ -33,14 +33,14 @@ const PageMetaInformation = (pageInfo: PageMetaInformationProps['pageInfo']) => 
         <meta property="og:type" content="website" />
         <meta property="og:title" content={pageInfo.title} />
         <meta property="og:description" content={pageInfo.description} />
-        <meta property="og:image" content="/Site_Thumbnail.jpg" />
+        <meta property="og:image" content="/site_thumbnail.jpg" />
         <meta property="og:url" content={pageInfo.canonicalUrl} />
         {/* End Open Graph / Facebook */}
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageInfo.title} />
         <meta name="twitter:description" content={pageInfo.description} />
-        <meta name="twitter:image" content="/Site_Thumbnail.jpg" />
+        <meta name="twitter:image" content="/site_thumbnail.jpg" />
         {/* End Twitter */}
     </>
   );
