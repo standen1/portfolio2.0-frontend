@@ -1,0 +1,20 @@
+.UnderConstruction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 300px;
+    padding: 30px;
+    color: #555;
+ }
+
+ @media screen and (max-width: 768px) {
+    .UnderConstruction {
+        padding: 20px;
+    }
+ }

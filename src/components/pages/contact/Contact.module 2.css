@@ -1,0 +1,64 @@
+.Contact {
+    display: grid;
+    width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+    .Contact {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .Contact {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.ProfileImage {
+    width: 100%;
+    overflow: hidden;
+}
+
+.ProfileImage img {
+    object-fit: cover;
+    object-position: right;
+    width: 100%;
+    height: 100%;
+}
+
+.ContactContentText {
+    padding: 30px 30px; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media screen and (max-width: 800px) {
+    .ContactContentText {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.ContactTextWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.SocialContact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.SocialContact h3 {
+    font-size: 35px;
+}
+
+.SocialContact p {
+    font-size: 16px;
+}
