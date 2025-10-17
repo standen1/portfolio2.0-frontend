@@ -1,22 +1,10 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
-import Layout from "@/components/lib/Layout/Layout";
-import Head from "next/head";
-import PageMetaInformation from "@/components/lib/PageMetaInformation/PageMetaInformation";
-import { PageMetaInformationProps } from "@/components/lib/PageMetaInformation/PageMetaInformationProps";
+import React from 'react';
+import { PageMetaInformationProps } from './PageMetaInformationProps';
 
-export default function App({ Component, pageProps }: AppProps) {
-  const pageInfo: PageMetaInformationProps['pageInfo'] = {
-    title: pageProps.title || "Sean Standen - Developer",
-    description: pageProps.description || "I am a full-stack web developer with a passion for building dynamic and modern websites and web applications.",
-    canonicalUrl: pageProps.canonicalUrl || "https://seanstanden.dev/"
-  }
-
+const PageMetaInformation = (pageInfo: PageMetaInformationProps['pageInfo']) => {
   return (
     <>
-      <Head>
-        <PageMetaInformation {...pageInfo} />
-        {/* Favicons */}
+      {/* Favicons */}
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
           <link rel="shortcut icon" href="/favicon.ico" />
@@ -54,10 +42,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="twitter:description" content={pageInfo.description} />
         <meta name="twitter:image" content="/Site_Thumbnail.jpg" />
         {/* End Twitter */}
-      </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
     </>
   );
 }
+
+export default PageMetaInformation;
