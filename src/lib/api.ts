@@ -3,6 +3,26 @@ import { AboutPage, SkillsPage, ContactPage, ResumePage, PrivacyPolicyPage, Port
 
 import { ABOUT_ENDPOINT, SKILLS_ENDPOINT, CONTACT_ENDPOINT, RESUME_ENDPOINT, JOBS_ENDPOINT, PORTFOLIO_ENDPOINT, PROJECTS_ENDPOINT } from '@/lib/endpoints';
 
+/**
+ * Media imported from Strapi is bundled in the frontend's public/uploads
+ * directory so the portfolio can be served while the CMS is offline.
+ */
+function localMediaUrl(url: string): string {
+    try {
+        const parsedUrl = new URL(url, 'http://localhost');
+        const isLocalUpload = parsedUrl.pathname.startsWith('/uploads/');
+        const isStrapiCloudUpload = parsedUrl.hostname.endsWith('.media.strapiapp.com');
+
+        if (!isLocalUpload && !isStrapiCloudUpload) {
+            return url;
+        }
+
+        const filename = parsedUrl.pathname.split('/').pop();
+        return filename ? `/uploads/${filename}` : url;
+    } catch {
+        return url;
+    }
+}
 
 //Main API Call to Strapi App Backend
 export async function get(endpoint: Endpoint) {
@@ -39,7 +59,7 @@ export async function getAboutPage(): Promise<AboutPage | string> {
 
         const pageData: AboutPage = data ? {
             ProfileImage: data.ProfileImage ? {
-                src: data.ProfileImage.ImageURL,
+                src: localMediaUrl(data.ProfileImage.ImageURL),
                 alt: data.ProfileImage.AltText,
                 width: data.ProfileImage.Width,
                 height: data.ProfileImage.Height
@@ -48,7 +68,7 @@ export async function getAboutPage(): Promise<AboutPage | string> {
                 Title: data.PageInfo.PageTitle,
                 Description: data.PageInfo.PageExcerpt,
                 featuredImage: data.FeaturedImage ? {
-                    src: data.FeaturedImage.ImageURL,
+                    src: localMediaUrl(data.FeaturedImage.ImageURL),
                     alt: data.FeaturedImage.AltText,
                     width: data.FeaturedImage.Width,
                     height: data.FeaturedImage.Height
@@ -90,7 +110,7 @@ export async function getContactPage(): Promise<ContactPage | string> {
 
         const pageData: ContactPage = data ? {
             ProfileImage: data.ProfileImage ? {
-                src: data.ProfileImage.ImageURL,
+                src: localMediaUrl(data.ProfileImage.ImageURL),
                 alt: data.ProfileImage.AltText,
                 width: data.ProfileImage.Width,
                 height: data.ProfileImage.Height
@@ -99,7 +119,7 @@ export async function getContactPage(): Promise<ContactPage | string> {
                 Title: data.PageInfo.PageTitle,
                 Description: data.PageInfo.PageExcerpt,
                 featuredImage: data.FeaturedImage ? {
-                    src: data.FeaturedImage.ImageURL,
+                    src: localMediaUrl(data.FeaturedImage.ImageURL),
                     alt: data.FeaturedImage.AltText,
                     width: data.FeaturedImage.Width,
                     height: data.FeaturedImage.Height
@@ -132,7 +152,7 @@ export async function getResumePage(): Promise<ResumePage | string> {
                 Title: pageData.PageInfo.PageTitle,
                 Description: pageData.PageInfo.PageExcerpt,
                 featuredImage: pageData.FeaturedImage ? {
-                    src: pageData.FeaturedImage.ImageURL,
+                    src: localMediaUrl(pageData.FeaturedImage.ImageURL),
                     alt: pageData.FeaturedImage.AltText,
                     width: pageData.FeaturedImage.Width,
                     height: pageData.FeaturedImage.Height
@@ -172,7 +192,7 @@ export async function getPrivacyPolicyPage(): Promise<PrivacyPolicyPage | string
                 Title: data.PageInfo.PageTitle,
                 Description: data.PageInfo.PageExcerpt,
                 featuredImage: data.FeaturedImage ? {
-                    src: data.FeaturedImage.ImageURL,
+                    src: localMediaUrl(data.FeaturedImage.ImageURL),
                     alt: data.FeaturedImage.AltText,
                     width: data.FeaturedImage.Width,
                     height: data.FeaturedImage.Height
@@ -203,7 +223,7 @@ export async function getPortfolioPage(): Promise<PortfolioPage | string> {
                 Title: pageData.PageInfo.PageTitle,
                 Description: pageData.PageInfo.PageExcerpt,
                 featuredImage: pageData.FeaturedImage ? {
-                    src: pageData.FeaturedImage.ImageURL,
+                    src: localMediaUrl(pageData.FeaturedImage.ImageURL),
                     alt: pageData.FeaturedImage.AltText,
                     width: pageData.FeaturedImage.Width,
                     height: pageData.FeaturedImage.Height
@@ -215,7 +235,7 @@ export async function getPortfolioPage(): Promise<PortfolioPage | string> {
                     websiteURL: project.ProjectInfo ? project.ProjectInfo.WebsiteURL : null,
                     description: project.ProjectInfo ? project.ProjectInfo.Description : null,
                     featuredImage: project.ThumbnailImage ? {
-                        src: project.ThumbnailImage.ImageURL,
+                        src: localMediaUrl(project.ThumbnailImage.ImageURL),
                         alt: project.ThumbnailImage.AltText,
                         width: project.ThumbnailImage.Width,
                         height: project.ThumbnailImage.Height
