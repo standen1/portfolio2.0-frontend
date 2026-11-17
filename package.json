@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync:media": "node --env-file=.env.local scripts/sync-strapi-media.mjs"
   },
   "dependencies": {
     "markdown-to-jsx": "^7.7.13",
