@@ -3,9 +3,14 @@ import styles from './ResumeLink.module.css';
 
 const ResumeLink = () => (
     <div className={styles.ResumeLink}>
-        <p>To inquire about freelancing work, please click the link below.</p>
-        <a href="https://intuitive-gem-3495d29428.media.strapiapp.com/Sean_Standen_Web_Developer_Resume_29959c5814.pdf" target="_blank">
-            Resume
+        <a href="Sean_Standen_Resume_2026.pdf" target="_blank" rel="noopener noreferrer">
+            Download Resume (PDF)
+            <div className={styles.Arrow}>
+                <i />
+            </div>
+        </a>
+        <a href="https://webpunk.tech/#contact" target="_blank" rel="noopener noreferrer">
+            Inquire About Freelance Work
             <div className={styles.Arrow}>
                 <i />
             </div>
